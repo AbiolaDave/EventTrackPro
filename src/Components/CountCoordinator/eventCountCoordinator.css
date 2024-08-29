@@ -1,0 +1,50 @@
+#pdf-content {
+  padding: 20px;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+@media only screen and (width < 500px) {
+  .new-table {
+    width: 100% !important;
+    display: block;
+    overflow-x: auto;
+    margin-left: 0px !important;
+  }
+}
+@media only screen and (width < 1000px) {
+  .new-table {
+    width: 150% !important;
+    font-size: 14px;
+    display: block;
+    overflow-x: auto !important;
+    margin-left: 0px !important;
+  }
+
+  .new-table th,
+  .new-table td {
+    padding: 5px 10px; 
+    white-space: normal; 
+    text-align: left;
+  }
+
+  .new-table td {
+    word-wrap: break-word;
+    overflow: visible; 
+  }
+  .coco{
+    margin-left: -27px !important;
+  }
+}
+

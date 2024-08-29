@@ -1,0 +1,352 @@
+.admin {
+  position: relative;
+  width: 200px;
+  height: 700px;
+  text-align: center;
+  font-family: emirates;
+  margin-top: 100px;
+}
+.loginstyle {
+  display: flex;
+  color: green;
+  list-style: none;
+  text-decoration: none;
+  margin-left: 10px;
+  max-width: 300px;
+  text-align: left;
+}
+.loginstyle a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.simplified {
+  width: 50%;
+  height: 300px;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 1px 1px lightgray;
+}
+.simplified img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.enroll {
+  color: green;
+  font-family: emirates;
+  max-width: 500px;
+  line-height: 30px;
+}
+.heroe {
+  position: relative;
+  display: block;
+  background-color: lightgray;
+  height: 140vh;
+}
+.my-blog {
+  /* border: 1px solid red; */
+  height: 600px;
+}
+.blog-grid {
+  display: grid;
+  padding: 5rem;
+  gap: 2rem;
+  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(2, 420px);
+  font-family: emirates;
+  height: 400px;
+}
+.box0 {
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 5px 5px 5px 5px lightgray;
+  overflow: hidden;
+}
+.box0 img {
+  position: relative;
+  width: 400px;
+  height: 50%;
+  position: relative;
+  background-size: cover;
+  object-fit: fill;
+}
+.divide {
+  height: 105px;
+}
+.box0 h5 {
+  color: green;
+  margin-left: 10px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+.box0 p {
+  margin-left: 10px;
+  max-width: 300px;
+}
+.tag {
+  position: absolute;
+  display: flex;
+  padding: 10px;
+  height: 30px;
+  border: 1px solid green;
+  background-color: green;
+  border-radius: 3px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  margin-left: 120px;
+  margin-top: -15px;
+}
+.author {
+  margin-top: -5px;
+}
+.simplify {
+  height: 300px;
+  width: 50%;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 1px 1px lightgray;
+}
+.simplify img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.heroes {
+  height: 130vh;
+}
+.nav-det{
+  display: none !important;
+}
+@media only screen and (max-width: 600px) {
+}
+@media only screen and (width < 500px) {
+  .admin {
+    display: none !important;
+  }
+  .cov {
+    display: flex !important;
+    flex-direction: column;
+    flex-flow: column-reverse;
+  }
+  .enroll {
+    color: green;
+    font-family: emirates;
+    max-width: 300px !important;
+    line-height: 30px;
+    margin-left: 30px !important;
+  }
+  .enroll p {
+    max-width: 350px;
+  }
+  .simplified {
+    width: 100px !important;
+    height: 300px !important;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px 1px lightgray;
+  }
+  .simplified img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .heroe {
+    position: relative;
+    display: block;
+    background-color: lightgray;
+    height: 310vh;
+  }
+  .my-blog {
+    /* border: 1px solid red; */
+    height: 2000px !important;
+    background-color: lightgray !important;
+  }
+  .blog-grid {
+    display: grid;
+    padding: 3rem !important;
+    gap: 2rem;
+    position: relative;
+    grid-template-columns: repeat(1, 300px) !important;
+    grid-template-rows: repeat(3, 420px) !important;
+    font-family: emirates;
+    height: 400px;
+    margin-left: 20px;
+  }
+  .box0 {
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px 5px lightgray;
+    overflow: hidden;
+    border-radius: 10px !important;
+  }
+  .box0 img {
+    position: relative;
+    width: 400px;
+    height: 50%;
+    position: relative;
+    background-size: cover;
+    object-fit: fill;
+  }
+  .divide {
+    height: 115px;
+  }
+  .box0 h5 {
+    color: green;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .box0 p {
+    margin-left: 10px;
+    min-width: 300px !important;
+    /* max-width: 750px !important; */
+  }
+  .tag {
+    position: absolute;
+    display: flex;
+    padding: 10px;
+    height: 30px;
+    border: 1px solid green;
+    background-color: green;
+    border-radius: 3px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: -15px;
+  }
+  .author {
+    margin-top: -5px;
+  }
+  .nav-det {
+    display: block !important;
+  }
+}
+@media only screen and (width < 1000px) {
+  .admin {
+    /* background-color: red; */
+    position: relative;
+    width: 150px;
+    height: 700px;
+    text-align: center;
+    font-family: emirates;
+    margin-top: 50px;
+    display: block;
+  }
+  .loginstyle {
+    /* display: flex; */
+    color: green;
+    list-style: none;
+    text-decoration: none;
+    max-width: 50px;
+    text-align: left;
+    display: block;
+    /* left: 20px !important; */
+  }
+  .loginstyle a {
+    list-style: none;
+    text-decoration: none;
+    max-width: 20px !important;
+    display: block;
+  }
+  .icons {
+    display: block !important;
+    text-align: center;
+  }
+  .menu-actions {
+    display: block !important;
+    margin-top: 20px;
+    text-align: center !important;
+  }
+  .cov {
+    display: flexbox !important;
+    align-content: space-between !important;
+  }
+  .simplified {
+    width: 500px !important;
+    height: 300px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    margin-left: -70px !important;
+  }
+  .simplified img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .enroll {
+    color: green;
+    font-family: emirates;
+    max-width: 400px !important;
+    line-height: 30px;
+    margin-right: -40px !important;
+  }
+
+  .my-blog {
+    /* border: 1px solid red; */
+    height: 600px;
+  }
+  .blog-grid {
+    display: grid;
+    padding: 2rem;
+    gap: 1.5rem;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 420px);
+    font-family: emirates;
+    height: 400px;
+  }
+  .box0 {
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px 5px lightgray;
+    overflow: hidden;
+  }
+  .box0 img {
+    position: relative;
+    width: 400px;
+    height: 50%;
+    position: relative;
+    background-size: cover;
+    object-fit: fill;
+  }
+  .divide {
+    height: 115px;
+  }
+  .box0 h5 {
+    color: green;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .box0 p {
+    margin-left: 10px;
+    max-width: 250px !important;
+  }
+  .tag {
+    position: absolute;
+    display: flex;
+    padding: 10px;
+    height: 30px;
+    border: 1px solid green;
+    background-color: green;
+    border-radius: 3px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: -15px;
+  }
+  .author {
+    margin-top: -5px;
+  }
+  .coord {
+    font-size: 16px;
+  }
+  .nav-det {
+    display: block !important;
+  }
+}

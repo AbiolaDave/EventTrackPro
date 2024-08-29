@@ -1,0 +1,9 @@
+@media only screen and (width < 500px) {
+    .coc-eve{
+        /* width: 100% !important; */
+        margin-left: -800px !important;
+    }
+    .count-form{
+        width: 350px !important;
+    }
+}

@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.bdl {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid green;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0%;
+}
+
+@font-face {
+  font-family: emirates;
+  src: url(./multimedia/Emirates-Bold.ttf);
+}
+.foot {
+  position: relative;
+  top: 700px;
+}
+.era {
+  /* background: linear-gradient(
+      rgba(176, 245, 179, 0.8),
+      rgba(155, 241, 128, 0.5),
+      rgba(109, 240, 97, 0.2)
+    ),
+    url(""); */
+  background-size: auto;
+  background-repeat: no-repeat;
+  object-fit: fill;
+  font-family: emirates;
+}
+@font-face {
+  font-family: emirates;
+  src: url(./multimedia/Emirates-Bold.ttf);
+}
+.newevent {
+  font-family: emirates;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  background-image: url("../src/multimedia/video-for-event-marketing.jpg");
+}
+.newevent h1 {
+  margin-top: 50px;
+  margin-left: 400px;
+  white-space: nowrap;
+  animation: create 10s linear 2s infinite;
+}
+@keyframes create {
+  0% {
+    transform: translateX(400px); /* Start from the right */
+  }
+  25% {
+    transform: translateX(-350px); /* Stay in the center for 3s */
+  }
+  50% {
+    transform: translateX(-350px); /* Stay in the center */
+  }
+  100% {
+    transform: translateX(-800px); /* Disappear to the left */
+  }
+}
+.newevent p {
+  max-width: 300px;
+  animation-name: create2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-delay: 5s;
+  animation-timing-function: linear;
+}
+@keyframes create2 {
+  0% {
+    transform: none;
+  }
+  25% {
+    transform: skewX(180deg);
+  }
+  40% {
+    transform: none;
+  }
+  50% {
+    transform: none;
+  }
+  70% {
+    transform: none;
+  }
+  90% {
+    transform: none;
+  }
+  100% {
+    animation-play-state: paused !important;
+  }
+}
+.addcounter {
+  height: 300px;
+  background-image: url("../src/multimedia/ushers.jpg");
+  object-fit: fill;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  font-family: emirates;
+}
+.addcounter h1 {
+  margin-top: 70px;
+  margin-left: 400px;
+  white-space: nowrap;
+  animation: create 10s linear 2s infinite;
+}
+.addcounter p {
+  max-width: 300px;
+  animation-name: create2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-delay: 5s;
+  animation-timing-function: linear;
+}
+.myevents {
+  height: 310px;
+  background-image: url("../src/multimedia/event33.jpg");
+  object-fit: fill;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  font-family: emirates;
+}
+.myevents h1 {
+  margin-top: 70px;
+  margin-left: 400px;
+  white-space: nowrap;
+  animation: create 10s linear 2s infinite;
+}
+.myevents p {
+  max-width: 300px;
+  animation-name: create2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-delay: 5s;
+  animation-timing-function: linear;
+}
+.adminbod {
+  background-color: rgb(22, 158, 22);
+  width: 100%;
+  height: 700px;
+}
+
+.create-two {
+  background: lightgreen;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 1000px;
+  height: 910px;
+  overflow-y: scroll;
+}
+.num {
+  position: absolute;
+  color: green;
+  margin-top: 14px;
+  margin-left: 20px;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 7px;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  /* text-align: center; */
+}
+.num p {
+  position: relative;
+  margin-top: -6px;
+}
