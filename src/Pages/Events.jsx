@@ -83,7 +83,7 @@ const Events = () => {
       if (confirmDelete) {
         await axios.delete(`https://eventtrackpro-backend.onrender.com/admin/adminpage/${eventId}`);
         alert("Event deleted successfully");
-        navigate("/adminpage");
+        navigate("/eventtrackpro/adminpage");
       }
     } catch (error) {
       console.error("Error deleting event:", error);

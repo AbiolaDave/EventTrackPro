@@ -39,7 +39,7 @@ const Register = () => {
       await axios
         .post(url, {
           ...values,
-          userqrcode: userqrcode, // Include userqrcode in the data
+          userqrcode: userqrcode, 
         })
         .then((response) => {
           console.log(response);

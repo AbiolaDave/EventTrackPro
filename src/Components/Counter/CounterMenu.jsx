@@ -17,7 +17,7 @@ const CounterMenu = () => {
     <>
       <div className="admin">
         <div className="mt-5 d-flex text-success">
-          <a className="loginstyle" href="/">
+          <a className="loginstyle" href="/eventtrackpro/">
             <i
               class="fa-solid fa-house fa-xl mx-2 my-2"
               style={{ color: "green" }}
@@ -50,7 +50,7 @@ const CounterMenu = () => {
           </a>
         </div>
         <div className="mt-5 d-flex text-success ">
-          <a className="loginstyle" href="/adminlogin">
+          <a className="loginstyle" href="/eventtrackpro/adminlogin">
             <i
               class="fa-solid fa-right-to-bracket fa-2xl mx-2 my-2"
               style={{ color: "green" }}
@@ -59,7 +59,7 @@ const CounterMenu = () => {
           </a>
         </div>
         <div className="mt-5 d-flex text-success">
-          <a className="loginstyle" href="/countcoordinatorlogin">
+          <a className="loginstyle" href="/eventtrackpro/countcoordinatorlogin">
             <i
               class="fa-solid fa-right-to-bracket fa-2xl mx-2 my-3"
               style={{ color: "green" }}

@@ -60,7 +60,7 @@ const CountCoordinatorEvents = (props) => {
                 <li>
                   <Link
                     onClick={() => dispatch(setSender(props.user))}
-                    to={`/countcoordinator/${eachEvent.eventId}`}
+                    to={`/eventtrackpro/countcoordinator/${eachEvent.eventId}`}
                     key={eachEvent.eventId}
                   >
                     <table className="table">

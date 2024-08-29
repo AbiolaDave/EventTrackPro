@@ -37,7 +37,7 @@ const CountCordinator = () => {
       .then((response) => {
         if (!response.data.status) {
           console.log(response.data.status, "here error");
-          navigate("/countcoordinatorlogin");
+          navigate("/eventtrackpro/countcoordinatorlogin");
         } else {
           setuser(response.data.firstname);
           setadmin(response.data.admin);
@@ -48,7 +48,7 @@ const CountCordinator = () => {
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        navigate("/countcoordinatorlogin");
+        navigate("/eventtrackpro/countcoordinatorlogin");
       });
   }, []);
 

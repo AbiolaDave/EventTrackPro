@@ -40,7 +40,7 @@ const CounterPage = () => {
       .then((response) => {
         if (!response.data.status) {
           console.log(response.data.status, "here error");
-          navigate("/counterlogin");
+          navigate("/eventtrackpro/counterlogin");
         } else {
           setuser(response.data.firstname);
           setadmin(response.data.admin);
@@ -52,7 +52,7 @@ const CounterPage = () => {
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        navigate("/login");
+        navigate("/eventtrackpro/login");
       });
   }, []);
 

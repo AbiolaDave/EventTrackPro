@@ -30,14 +30,14 @@ const CountCoordinatorLogin = () => {
             );
             localStorage.CounterCoordinatortoken =
               response.data.CounterCoordinatortoken;
-            navigate("/countcoordinator");
+            navigate("/eventtrackpro/countcoordinator");
           } else {
-            navigate("/countcoordinatorregister")
+            navigate("/eventtrackpro/countcoordinatorregister");
             console.log(response.data.message);
           }
         })
         .catch((error) => {
-            navigate("/countcoordinatorregister");
+            navigate("/eventtrackpro/countcoordinatorregister");
           console.error("There was an error!", error);
         });
     },
@@ -107,7 +107,10 @@ const CountCoordinatorLogin = () => {
                 Submit
               </button>
               <div className="text-center text-success fw-bold">
-                <a className="text-success" href="/countcoordinatorregister">
+                <a
+                  className="text-success"
+                  href="/eventtrackpro/countcoordinatorregister"
+                >
                   <p>Sign up as Count-Coordinator</p>
                 </a>
               </div>

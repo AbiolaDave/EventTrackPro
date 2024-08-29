@@ -27,9 +27,9 @@ const CounterLogin = () => {
               response.data.Countertoken
             );
             localStorage.Countertoken = response.data.Countertoken;
-            navigate("/counterpage");
+            navigate("/eventtrackpro/counterpage");
           } else {
-            navigate("/counterregister");
+            navigate("/eventtrackpro/counterregister");
             console.log(response.data.message);
           }
         })
@@ -101,7 +101,10 @@ const CounterLogin = () => {
                 Submit
               </button>
               <div className="text-center text-success fw-bold">
-                <a className="text-success" href="/counterregister">
+                <a
+                  className="text-success"
+                  href="/eventtrackpro/counterregister"
+                >
                   <p>Register as Counter</p>
                 </a>
               </div>

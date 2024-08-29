@@ -58,7 +58,7 @@ const CounterEvent = (props) => {
                 <li>
                   <Link
                     onClick={() => dispatch(setSender(props.user))}
-                    to={`/counterpage/${eachEvent.eventId}`}
+                    to={`/eventtrackpro/counterpage/${eachEvent.eventId}`}
                     key={eachEvent.eventId}
                   >
                     <table className="table">

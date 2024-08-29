@@ -209,7 +209,7 @@ const EventsCountCoordinator = (admin) => {
       setDecline(true);
       viewCount();
       window.alert("count rejected");
-      navigate(`/countcoordinator/${eventId}`);
+      navigate(`/eventtrackpro/countcoordinator/${eventId}`);
     }
   };
 

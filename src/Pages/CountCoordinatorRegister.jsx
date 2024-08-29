@@ -26,7 +26,7 @@ const CountCoordinatorRegister = () => {
             console.log("hello", response.data.status);
             navigate("/countcoordinatorlogin");
           } else {
-            // navigate("/countcoordinatorregister")
+            // navigate("/eventtrackpro/countcoordinatorregister")
             console.log(response.data.message);
           }
         })
@@ -120,7 +120,10 @@ const CountCoordinatorRegister = () => {
                 Submit
               </button>
               <div className="text-center text-success fw-bold">
-                <a className="text-success" href="/countcoordinatorlogin">
+                <a
+                  className="text-success"
+                  href="/eventtrackpro/countcoordinatorlogin"
+                >
                   <p>Login as Count-Coordinator</p>
                 </a>
               </div>

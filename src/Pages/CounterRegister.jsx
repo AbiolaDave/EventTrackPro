@@ -24,7 +24,7 @@ const CounterRegister = () => {
           console.log(response);
           if (response.data.status) {
             console.log("hello", response.data.status);
-            navigate("/counterpage");
+            navigate("/eventtrackpro/counterpage");
           } else {
             // navigate("/counterpage");
             console.log(response.data.message);
@@ -120,7 +120,7 @@ const CounterRegister = () => {
                 Submit
               </button>
               <div className="text-center text-success fw-bold">
-                <a className="text-success" href="/counterlogin">
+                <a className="text-success" href="/eventtrackpro/counterlogin">
                   <p>Login as Counter</p>
                 </a>
               </div>

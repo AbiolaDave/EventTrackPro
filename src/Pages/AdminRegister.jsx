@@ -24,7 +24,7 @@ const AdminRegister = () => {
           console.log(response);
           if (response.data.status) {
             console.log("hello", response.data.status);
-            navigate("/adminpage");
+            navigate("/eventtrackpro/adminpage");
           } else {
             console.log(response.data.message);
           }
@@ -117,7 +117,7 @@ const AdminRegister = () => {
                 Submit
               </button>
               <div className="text-center text-success fw-bold">
-                <a className="text-success" href="/adminlogin">
+                <a className="text-success" href="/eventtrackpro/adminlogin">
                   <p>Login as Admin</p>
                 </a>
               </div>

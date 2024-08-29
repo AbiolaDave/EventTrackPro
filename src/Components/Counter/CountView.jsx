@@ -43,7 +43,7 @@ const CountView = (props) => {
               <ul className="text-success" key={eachEvent.eventId}>
                 <li>
                   <Link
-                    to={`/adminpage/${eachEvent.eventId}`}
+                    to={`/eventtrackpro/adminpage/${eachEvent.eventId}`}
                     key={eachEvent.eventId}
                   >
                     {console.log(events, eachEvent.eventId)}

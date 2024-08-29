@@ -16,7 +16,7 @@ const AdminMenu = () => {
     <>
       <div className="admin">
         <div className="mt-5  text-success">
-          <a className="loginstyle" href="/">
+          <a className="loginstyle" href="/eventtrackpro/">
             <i
               className="fa-solid fa-house fa-xl mx-1 my-2 icons"
               style={{ color: "green" }}
@@ -44,10 +44,7 @@ const AdminMenu = () => {
           ></i>
           <h5 className="fw-bold menu-actions">Add Counters</h5>
         </div>
-        <div
-          onClick={() => dispatch(viewEvent())}
-          className="mt-5  loginstyle"
-        >
+        <div onClick={() => dispatch(viewEvent())} className="mt-5  loginstyle">
           <i
             className="icons fa-solid fa-eye fa-xl mx-1 my-2"
             style={{ color: "green" }}
@@ -55,7 +52,7 @@ const AdminMenu = () => {
           <h5 className="fw-bold menu-actions">View Events</h5>
         </div>
         <div className="mt-5  text-success ">
-          <a className="loginstyle" href="/counterlogin">
+          <a className="loginstyle" href="/eventtrackpro/counterlogin">
             <i
               className="icons fa-solid fa-right-to-bracket fa-2xl mx-1 my-4"
               style={{ color: "green" }}
@@ -64,7 +61,7 @@ const AdminMenu = () => {
           </a>
         </div>
         <div className="mt-5  text-success">
-          <a className="loginstyle" href="/countcoordinatorlogin">
+          <a className="loginstyle" href="/eventtrackpro/countcoordinatorlogin">
             <i
               className="icons fa-solid fa-right-to-bracket fa-2xl mx-1 my-4"
               style={{ color: "green" }}
