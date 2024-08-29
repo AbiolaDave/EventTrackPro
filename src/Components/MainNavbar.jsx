@@ -133,6 +133,14 @@ const MainNavbar = (props) => {
                 </li>
                 <li className="nav-item mx-3">
                   <div
+                    onClick={() => dispatch(startNewEvent())}
+                    className="nav-link text-light fw-bold fs-5"
+                  >
+                    <h5 className="fw-bold">Scan Events</h5>
+                  </div>
+                </li>
+                <li className="nav-item mx-3">
+                  <div
                     onClick={() => dispatch(viewEvent())}
                     className="nav-link text-light fw-bold fs-5"
                   >
