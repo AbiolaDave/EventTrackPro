@@ -116,7 +116,7 @@
 .heroes {
   height: 130vh;
 }
-.nav-det{
+.nav-det {
   display: none !important;
 }
 
@@ -163,14 +163,14 @@
   }
   .blog-grid {
     display: grid;
-    padding: 3rem !important;
+    padding: 2rem !important;
     gap: 2rem;
     position: relative;
     grid-template-columns: repeat(1, 300px) !important;
     grid-template-rows: repeat(3, 420px) !important;
     font-family: emirates;
     height: 400px;
-    margin-left: 20px;
+    margin-left: 0px;
   }
   .box0 {
     border: 1px solid lightgray;

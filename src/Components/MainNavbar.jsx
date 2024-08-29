@@ -2,7 +2,13 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBell, faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {
+  addCounter,
+  startNewEvent,
+  viewEvent,
+} from "../Components/redux/newEvent";
 import countlogo from "../multimedia/attendance-logo1.jpeg";
 library.add(faCoffee);
 
@@ -11,6 +17,10 @@ const style = {
 };
 
 const MainNavbar = (props) => {
+  const dispatch = useDispatch();
+
+  const createNewEvent = useSelector((state) => state);
+
   const [numb, setnumb] = useState(0);
   const [visible, setvisible] = useState(false);
 
