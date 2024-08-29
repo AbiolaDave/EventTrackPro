@@ -30,7 +30,7 @@ import SelectLogin from "./Pages/SelectLogin";
 function App() {
   return (
     <>
-      <Routes>
+      <Routes basename="/eventtrackpro">
         <Route path="/eventtrackpro/" element={<Home />} />
         <Route path="/eventtrackpro/register" element={<Register />} />
         <Route path="/eventtrackpro/login" element={<Login />} />
