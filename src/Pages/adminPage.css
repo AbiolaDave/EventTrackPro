@@ -162,6 +162,7 @@
     display: block;
     background-color: lightgray;
     height: 310vh;
+    overflow-x: hidden !important;
   }
   .my-blog {
     /* border: 1px solid red; */
