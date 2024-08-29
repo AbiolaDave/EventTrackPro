@@ -50,7 +50,7 @@ const CounterLogin = () => {
     <main className="min-vh-150 backg d-flex justify-content-center align-items-center">
       <div className="container mt-5">
         <div className="row">
-          <div className="reg col-3 col-sm-5 mx-auto p-3 rounded-2 mt-5 mb-5">
+          <div className="reg col-3 col-sm-5 mx-auto p-3 rounded-2 mt-5 mb-5 con-box">
             <div className="text-center mt-5">
               <img className="" height="50px" src={countlogo} alt="" />
             </div>

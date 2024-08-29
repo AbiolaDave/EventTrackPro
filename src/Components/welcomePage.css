@@ -82,4 +82,15 @@
   .con-box {
     width: 300px !important;
   }
+  .hero {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.2)
+      ),
+      url("../multimedia/Designer(10).jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: fill;
+  }
 }
