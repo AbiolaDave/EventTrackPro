@@ -21,7 +21,7 @@
   border: 2px rgba(236, 234, 234, 0.97) solid !important;
   box-shadow: rgb(184, 184, 184) 6px 6px 23px 6px !important;
 }
-@media only screen and (width < 500px) {
+@media only screen and (max-width: 499px) {
      .con-box{
     width: 300px !important;
  }

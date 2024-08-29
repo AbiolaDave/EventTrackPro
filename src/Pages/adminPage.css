@@ -119,9 +119,8 @@
 .nav-det{
   display: none !important;
 }
-@media only screen and (max-width: 600px) {
-}
-@media only screen and (width < 500px) {
+
+@media only screen and (max-width: 499px) {
   .admin {
     display: none !important;
   }
@@ -224,7 +223,7 @@
     display: block !important;
   }
 }
-@media only screen and (width < 1000px) {
+@media only screen and (max-width: 999px) {
   .admin {
     /* background-color: red; */
     position: relative;

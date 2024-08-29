@@ -225,7 +225,7 @@
   font-family: emirates;
   line-height: 30px;
 }
-@media only screen and (width < 1000px) {
+@media only screen and (max-width: 999px) {
   .txt {
     margin-left: 50px;
   }
@@ -410,9 +410,7 @@
     line-height: 30px;
   }
 }
-@media only screen and (max-width: 600px) {
-}
-@media only screen and (width < 500px) {
+@media only screen and (max-width: 499px) {
   .txt {
     margin-left: 30px;
     top: 20px;
