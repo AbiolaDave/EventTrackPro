@@ -1,5 +1,6 @@
 import axios from "axios";
 import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import React, { useEffect, useRef, useState } from "react";
 import QRCode from "react-qr-code";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,7 +57,8 @@ const Events = () => {
 
   const getFinalCount = async () => {
     if (event) {
-      let url = "https://eventtrackpro-backend.onrender.com/admin/getfinalcount";
+      let url =
+        "https://eventtrackpro-backend.onrender.com/admin/getfinalcount";
       let unique = event.uniqueId;
       try {
         axios.post(url, { unique, coordinator }).then((response) => {
@@ -81,7 +83,9 @@ const Events = () => {
     try {
       const confirmDelete = window.confirm("Delete this event?");
       if (confirmDelete) {
-        await axios.delete(`https://eventtrackpro-backend.onrender.com/admin/adminpage/${eventId}`);
+        await axios.delete(
+          `https://eventtrackpro-backend.onrender.com/admin/adminpage/${eventId}`
+        );
         alert("Event deleted successfully");
         navigate("/eventtrackpro/adminpage");
       }
@@ -245,7 +249,8 @@ const Events = () => {
   }, [event]);
 
   const sendCoord = async () => {
-    let url = "https://eventtrackpro-backend.onrender.com/admin/coordnotification";
+    let url =
+      "https://eventtrackpro-backend.onrender.com/admin/coordnotification";
     let Coordinator = await coordinator;
     let admin = await Admin;
     try {
@@ -263,6 +268,45 @@ const Events = () => {
     } catch (error) {
       console.error("Error fetching events:", error);
     }
+  };
+
+  const handleDownloadPdf = () => {
+    const input = document.getElementById("pdf-content");
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "pt",
+      format: "a4",
+    });
+
+    html2canvas(input, {
+      scale: 2,
+      useCORS: true,
+      logging: true,
+    })
+      .then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+
+        pdf.save("download.pdf");
+      })
+      .catch((error) => {
+        console.error("Error generating PDF:", error);
+      });
   };
 
   return (
@@ -307,65 +351,95 @@ const Events = () => {
 
             {totalCount ? (
               <>
-                <div className="border border-3 bg-success text-white fw-bold">
-                  <h1>{event.eventName}</h1>
+                <div className="container col-sm-9">
+                  <div className="bg-success p-2">
+                    <h2 className="text-light">{event.eventName}</h2>
+                  </div>
                 </div>
-                <table class="table mt-3">
-                  <thead>
-                    <tr>
-                      <th>Male</th>
-                      <th>Female</th>
-                      <th>Children</th>
-                      <th>Vehicles</th>
-                      <th>Motor Bikes</th>
-                      <th>Converts</th>
-                      <th>New Timers</th>
-                      <th>Total</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tableContent">
-                    <tr>
-                      <td>{totalCount.totalMale}</td>
-                      <td>{totalCount.totalFemale}</td>
-                      <td>{totalCount.totalChildren}</td>
-                      <td>{totalCount.totalVehicles}</td>
-                      <td>{totalCount.totalBikes}</td>
-                      <td>{}</td>
-                      <td>{totalCount.totalFirstTimers}</td>
-                      <td>
-                        {" "}
-                        {totalCount.totalMale +
-                          totalCount.totalFemale +
-                          totalCount.totalChildren}
-                      </td>
-                      <td>
-                        {!finalCount ? (
-                          <>
-                            <button
-                              onClick={() => acceptCount(totalCount)}
-                              className="btn btn-success mx-2 fw-bold"
-                            >
-                              +
-                            </button>
-                            <button
-                              className="btn btn-danger fw-bold"
-                              onClick={() => rejectCount(totalCount)}
-                            >
-                              X
-                            </button>
-                          </>
-                        ) : decline ? (
-                          <p>Count Rejected</p>
-                        ) : (
-                          <>
-                            <p>Count accepted</p>
-                          </>
-                        )}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Male</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>{totalCount.totalMale}</h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Female</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>{totalCount.totalFemale}</h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Children</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>{totalCount.totalChildren}</h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Vehicles</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>{totalCount.totalVehicles}</h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Motor Bikes</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>{totalCount.totalBikes}</h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>First Timers</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>{totalCount.totalFirstTimers}</h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Total</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>
+                      {totalCount.totalMale +
+                        totalCount.totalFemale +
+                        totalCount.totalChildren}
+                    </h3>
+                  </div>
+                </div>{" "}
+                {!finalCount ? (
+                  <div className="d-flex col-sm-9 mt-3 container">
+                    <div className="d-flex mx-auto">
+                      <button
+                        className="btn btn-success d-flex"
+                        onClick={() => acceptCount(totalCount)}
+                      >
+                        Accept
+                      </button>
+                      <button
+                        className="btn btn-danger d-flex mx-2"
+                        onClick={() => rejectCount(totalCount)}
+                      >
+                        Reject
+                      </button>
+                    </div>
+                  </div>
+                ) : decline ? (
+                  <p>Count Rejected</p>
+                ) : (
+                  <>
+                    <p>Count accepted</p>
+                  </>
+                )}
               </>
             ) : (
               <div></div>
@@ -400,26 +474,91 @@ const Events = () => {
 
             {finalCount && acceptedCounts ? (
               <>
-                <p>Total Male: {acceptedCounts.totalMale}</p>
-                <p>Total Female: {acceptedCounts.totalFemale}</p>
-                <p>Total Children: {acceptedCounts.totalChildren}</p>
-                <p>Total Vehicle: {acceptedCounts.totalVehicles}</p>
-                <p>Total Bikes: {acceptedCounts.totalBikes}</p>
-                <p>Total First-Timers: {acceptedCounts.totalFirstTimers}</p>
-                <p>
-                  Total:
-                  {acceptedCounts.totalMale +
-                    acceptedCounts.totalFemale +
-                    acceptedCounts.totalChildren}
-                </p>
+                <div id="pdf-content">
+                  <div className="container col-sm-9">
+                    <div className="bg-success p-2">
+                      <h2 className="text-light">{event.eventName}</h2>
+                    </div>
+                  </div>
+                  <div className="d-flex col-sm-9 mt-3 mx-auto">
+                    <label htmlFor="">
+                      <h3>Male</h3>
+                    </label>
+                    <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                      <h3>{acceptedCounts.totalMale}</h3>
+                    </div>
+                  </div>{" "}
+                  <div className="d-flex col-sm-9 mt-3 mx-auto">
+                    <label htmlFor="">
+                      <h3>Female</h3>
+                    </label>
+                    <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                      <h3>{acceptedCounts.totalFemale}</h3>
+                    </div>
+                  </div>{" "}
+                  <div className="d-flex col-sm-9 mt-3 mx-auto">
+                    <label htmlFor="">
+                      <h3>Children</h3>
+                    </label>
+                    <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                      <h3>{acceptedCounts.totalChildren}</h3>
+                    </div>
+                  </div>{" "}
+                  <div className="d-flex col-sm-9 mt-3 mx-auto">
+                    <label htmlFor="">
+                      <h3>Vehicles</h3>
+                    </label>
+                    <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                      <h3>{acceptedCounts.totalVehicles}</h3>
+                    </div>
+                  </div>{" "}
+                  <div className="d-flex col-sm-9 mt-3 mx-auto">
+                    <label htmlFor="">
+                      <h3>Motor Bikes</h3>
+                    </label>
+                    <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                      <h3>{acceptedCounts.totalBikes}</h3>
+                    </div>
+                  </div>{" "}
+                  <div className="d-flex col-sm-9 mt-3 mx-auto">
+                    <label htmlFor="">
+                      <h3>First Timers</h3>
+                    </label>
+                    <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                      <h3>{acceptedCounts.totalFirstTimers}</h3>
+                    </div>
+                  </div>{" "}
+                  <div className="d-flex col-sm-9 mt-3 mx-auto">
+                    <label htmlFor="">
+                      <h3>Total</h3>
+                    </label>
+                    <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                      <h3>
+                        {acceptedCounts.totalMale +
+                          acceptedCounts.totalFemale +
+                          acceptedCounts.totalChildren}
+                      </h3>
+                    </div>
+                  </div>{" "}
+                </div>
+
+                <button
+                  className="btn btn-info mt-3"
+                  onClick={handleDownloadPdf}
+                >
+                  Download as PDF
+                </button>
               </>
             ) : null}
 
-            <button className="btn btn-danger" onClick={handleDelete}>
+            <button className="btn btn-danger mx-3 mt-3" onClick={handleDelete}>
               Delete
             </button>
             {startButton ? (
-              <button className="btn btn-success mx-3" onClick={startEvent}>
+              <button
+                className="btn btn-success mx-3 mt-3"
+                onClick={startEvent}
+              >
                 Start Event
               </button>
             ) : null}

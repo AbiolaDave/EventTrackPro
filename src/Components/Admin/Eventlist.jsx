@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setSender } from "../redux/newEvent";
-import "./eventList.css"
+import "./eventList.css";
 
 const Eventlist = (props) => {
   const [events, setEvents] = useState([]);
@@ -66,15 +66,15 @@ const Eventlist = (props) => {
                         to={`/eventtrackpro/adminpage/${eachEvent.eventId}`}
                         key={eachEvent.eventId}
                       >
-                        <table className="table">
+                        <table>
                           <thead>
                             <tr>
-                              <th>S/N</th>
-                              <th>Name</th>
-                              <th>Service Index</th>
-                              <th>Event ID</th>
-                              <th>Admin</th>
-                              <th>Date</th>
+                              <th className="text-success">S/N</th>
+                              <th className="text-success">Name</th>
+                              <th className="text-success">Service Index</th>
+                              <th className="text-success">Event ID</th>
+                              <th className="text-success">Admin</th>
+                              <th className="text-success">Date</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -100,7 +100,6 @@ const Eventlist = (props) => {
         </div>
       </div>
     </div>
-  
   );
 };
 

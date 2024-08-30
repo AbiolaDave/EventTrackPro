@@ -66,11 +66,11 @@ const CountCoordinatorEvents = (props) => {
                     <table className="table">
                       <thead>
                         <tr>
-                          <th>S/N</th>
-                          <th>Name</th>
-                          <th>Service Index</th>
-                          <th>Admin</th>
-                          <th>Date</th>
+                          <th className="text-success">S/N</th>
+                          <th className="text-success">Name</th>
+                          <th className="text-success">Service Index</th>
+                          <th className="text-success">Admin</th>
+                          <th className="text-success">Date</th>
                         </tr>
                       </thead>
                       <tbody>

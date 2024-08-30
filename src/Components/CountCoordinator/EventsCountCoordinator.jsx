@@ -84,7 +84,7 @@ const EventsCountCoordinator = (admin) => {
 
     html2canvas(input, {
       scale: 2,
-      useCORS: true, // if there are external resources like images
+      useCORS: true, 
       logging: true,
     })
       .then((canvas) => {
@@ -400,156 +400,236 @@ const EventsCountCoordinator = (admin) => {
 
           <div className="container" id="pdf-content">
             {count.map((each, index) => (
-              <table className="table mt-3 new-table">
-                <thead>
-                  <tr>
-                    <th>S/N</th>
-                    <th>Counter</th>
-                    <th>Service Index</th>
-                    <th>Male</th>
-                    <th>Female</th>
-                    <th>Children</th>
-                    <th>Vehicles</th>
-                    <th>Motor Bikes</th>
-                    <th>Converts</th>
-                    <th>New Timers</th>
-                    <th>Total</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="tableContent">
-                  <tr>
-                    <td>{index}</td>
-                    <td>{each.sender}</td>
-                    <td>{index}</td>
-                    <td>{each.male}</td>
-                    <td>{each.female}</td>
-                    <td>{each.children}</td>
-                    <td>{each.vehicles}</td>
-                    <td>{each.motorbikes}</td>
-                    <td>{}</td>
-                    <td>{each.firsttimers}</td>
-                    <td>
-                      {" "}
-                      {Number(each.male) +
-                        Number(each.female) +
-                        Number(each.children)}
-                    </td>
-                    <td>
-                      {acceptedCounts[index] ? (
-                        <div></div>
-                      ) : (
-                        <div className="p-1">
+              <>
+                <div className="container col-sm-9 mt-3">
+                  <div className="bg-success p-2">
+                    <h2 className="text-light">Submitted Count</h2>
+                  </div>
+                  {/* <ul className="text-success mb-5" key={each.eventId}> */}
+                  <li className="mt-3">
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>S/N</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>{index + 1}</h3>
+                      </div>
+                    </div>
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>Male</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>{each.male}</h3>
+                      </div>
+                    </div>{" "}
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>Female</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>{each.female}</h3>
+                      </div>
+                    </div>{" "}
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>Children</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>{each.children}</h3>
+                      </div>
+                    </div>{" "}
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>Vehicles</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>{each.vehicles}</h3>
+                      </div>
+                    </div>{" "}
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>Motor Bikes</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>{each.motorbikes}</h3>
+                      </div>
+                    </div>{" "}
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>First Timers</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>{each.firsttimers}</h3>
+                      </div>
+                    </div>{" "}
+                    <div className="d-flex col-sm-9 mt-3 mx-auto">
+                      <label htmlFor="">
+                        <h3>Total</h3>
+                      </label>
+                      <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                        <h3>
+                          {Number(each.male) +
+                            Number(each.female) +
+                            Number(each.children)}
+                        </h3>
+                      </div>
+                    </div>{" "}
+                    {acceptedCounts[index] ? (
+                      <div></div>
+                    ) : (
+                      <div className="d-flex col-sm-9 mt-3 container">
+                        <div className="d-flex mx-auto">
                           <button
-                            className="btn btn-success mb-1"
+                            className="btn btn-success d-flex"
                             onClick={() => acceptCount(index)}
                           >
-                            +
+                            Accept
                           </button>
                           <button
-                            className="btn btn-danger mx-2 "
+                            className="btn btn-danger d-flex mx-2"
                             onClick={() => rejectCount(index)}
                           >
-                            X
+                            Reject
                           </button>
                         </div>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                      </div>
+                    )}
+                  </li>
+                  {/* </ul> */}
+                </div>
+              </>
             ))}
 
             {
-              <div className="col-sm-7 mx-auto">
-                <div>
-                  <h2>Higher Total</h2>
+              <div className="col-sm-9 container mt-5">
+                <div className="bg-success p-2">
+                  <h2 className="text-white fw-bold">Higher Total</h2>
                 </div>
-                <table class="table mt-3">
-                  <thead>
-                    <tr>
-                      <th>Male</th>
-                      <th>Female</th>
-                      <th>Children</th>
-                      <th>Vehicles</th>
-                      <th>Motor Bikes</th>
-                      <th>Converts</th>
-                      <th>New Timers</th>
-                      <th>Total</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tableContent">
-                    <tr>
-                      <td>
-                        {" "}
-                        {
-                          (totalMale = acceptedCounts.reduce(
-                            (sum, each) => sum + Number(each.male),
-                            0
-                          ))
-                        }{" "}
-                      </td>
-                      <td>
-                        {" "}
-                        {
-                          (totalFemale = acceptedCounts.reduce(
-                            (sum, each) => sum + Number(each.female),
-                            0
-                          ))
-                        }
-                      </td>
-                      <td>
-                        {
-                          (totalChildren = acceptedCounts.reduce(
-                            (sum, each) => sum + Number(each.children),
-                            0
-                          ))
-                        }
-                      </td>
-                      <td>
-                        {" "}
-                        {
-                          (totalVehicles = acceptedCounts.reduce(
-                            (sum, each) => sum + Number(each.vehicles),
-                            0
-                          ))
-                        }
-                      </td>
-                      <td>
-                        {" "}
-                        {
-                          (totalBikes = acceptedCounts.reduce(
-                            (sum, each) => sum + Number(each.motorbikes),
-                            0
-                          ))
-                        }
-                      </td>
-                      <td></td>
-                      <td>
-                        {" "}
-                        {
-                          (totalFirstTimers = acceptedCounts.reduce(
-                            (sum, each) => sum + Number(each.firsttimers),
-                            0
-                          ))
-                        }
-                      </td>
-                      <td>
-                        <p>Total: {totalMale + totalFemale + totalChildren}</p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button onClick={handleDownloadPdf}>Download as PDF</button>
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Male</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>
+                      {" "}
+                      {
+                        (totalMale = acceptedCounts.reduce(
+                          (sum, each) => sum + Number(each.male),
+                          0
+                        ))
+                      }{" "}
+                    </h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Female</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>
+                      {" "}
+                      {
+                        (totalFemale = acceptedCounts.reduce(
+                          (sum, each) => sum + Number(each.female),
+                          0
+                        ))
+                      }
+                    </h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Children</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>
+                      {" "}
+                      {
+                        (totalChildren = acceptedCounts.reduce(
+                          (sum, each) => sum + Number(each.children),
+                          0
+                        ))
+                      }
+                    </h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Vehicles</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>
+                      {" "}
+                      {
+                        (totalVehicles = acceptedCounts.reduce(
+                          (sum, each) => sum + Number(each.vehicles),
+                          0
+                        ))
+                      }
+                    </h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Motor Bikes</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>
+                      {" "}
+                      {
+                        (totalBikes = acceptedCounts.reduce(
+                          (sum, each) => sum + Number(each.motorbikes),
+                          0
+                        ))
+                      }
+                    </h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>First Timers</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>
+                      {" "}
+                      {
+                        (totalFirstTimers = acceptedCounts.reduce(
+                          (sum, each) => sum + Number(each.firsttimers),
+                          0
+                        ))
+                      }
+                    </h3>
+                  </div>
+                </div>{" "}
+                <div className="d-flex col-sm-9 mt-3 mx-auto">
+                  <label htmlFor="">
+                    <h3>Total</h3>
+                  </label>
+                  <div className="bdl mx-5 container col-sm-9 mt-3 mx-auto">
+                    <h3>{totalMale + totalFemale + totalChildren}</h3>
+                  </div>
+                </div>{" "}
+                <button
+                  className="btn btn-info mt-3"
+                  onClick={handleDownloadPdf}
+                >
+                  Download as PDF
+                </button>
                 {acceptedCounts.length > 0 &&
                 acceptedCounts.length === count.length ? (
-                  <button className="btn btn-success" onClick={submitCount}>
+                  <button
+                    className="btn btn-success mt-3 mx-3"
+                    onClick={submitCount}
+                  >
                     Submit Count
                   </button>
                 ) : null}
-
                 {startButton ? (
-                  <button className="btn btn-warning mx-3" onClick={startEvent}>
+                  <button
+                    className="btn btn-warning mx-3 mt-3"
+                    onClick={startEvent}
+                  >
                     Start Event
                   </button>
                 ) : null}
